@@ -159,8 +159,7 @@ int main(int argc, char* argv[])
   int terminate = 0;
   Shellcmd shellcmd;
 
-  if (gethostname(hostname))
-  {
+  if (gethostname(hostname)) {
     /* loop until control-D */
     while(!terminate) {
       printf("dosh-%s>>", hostname);
