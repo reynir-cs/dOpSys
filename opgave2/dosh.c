@@ -146,6 +146,25 @@ int executecommand (Shellcmd *shellcmd)
 {
   printshellcmd(shellcmd);
 
+  /* TODO: Check to see wether we've received ^D */
+
+  /* Execute! */
+  switch (shellcmd->type) {
+    case FOREGROUNDCMD:
+      foregroundcmd(shellcmd->filename1, shellcmd->arguments1);
+      break;
+    case BACKGROUNDCMD:
+      backgroundcmd(shellcmd->filename1, shellcmd->arguments1);
+      break;
+    case STDOUTREDIRECT:
+      redirect_stdoutcmd(shellcmd->filename1, shellcmd->arguments1,
+          shellcmd->filename2);
+      break;
+    case STDINREDIRECT:
+      redirect_stdincmd(shellcmd->filename1, shellcmd->arguments1,
+          shellcmd->filename2);
+      break;
+  }
   return 0;
 }
 
