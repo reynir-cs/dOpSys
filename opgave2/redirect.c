@@ -31,7 +31,8 @@ void redirect(char *filename, char *argv[],
   pid_t pid = fork();
   
   if (pid == 0) {
-    int fid = open(IOfilename, flags);
+    /* 0777 because otherwise the file permission will be garbage. */
+    int fid = open(IOfilename, flags, 0777); 
     dup2(fid, stdio);
 
     execvp(filename, argv);
