@@ -1,0 +1,6 @@
+# Ignore stupid backup files
+*~
+# Ignore nice backup files
+.*.sw*
+# Ignore object files
+*.o
