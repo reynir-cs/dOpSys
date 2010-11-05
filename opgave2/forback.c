@@ -14,7 +14,9 @@
 
 #include "forback.h"
 
-int startprocess(char *filename, char *argv[]) {
+static int startprocess(char *filename, char *argv[]);
+
+static int startprocess(char *filename, char *argv[]) {
   int pid = fork();
   if (pid == 0) // I are child
     execvp(filename, argv);
