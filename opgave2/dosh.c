@@ -146,7 +146,6 @@ int executecommand (Shellcmd *shellcmd)
 {
   printshellcmd(shellcmd);
 
-  /* TODO: Check to see wether we've received ^D */
   if (strcmp(shellcmd->filename1, "exit") == 0)
     return 1;
 
